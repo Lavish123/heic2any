@@ -1,6 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import { string } from 'rollup-plugin-string';
+
 
 export default {
     input: 'src/index.js', // This is the actual entry
@@ -10,5 +12,12 @@ export default {
         name: 'HeicTo',
         sourcemap: true,
     },
-    plugins: [resolve(), commonjs(), terser()],
+    plugins: [
+        string({
+            include: 'src/worker.js', // 👈 tells rollup to inline this file
+        }),
+        resolve(),
+        commonjs(),
+        terser()
+    ],
 };

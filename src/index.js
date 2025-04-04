@@ -1,3 +1,4 @@
+import workerStr from './worker.js';
 const isHeic = async (file) => {
   const buffer = await file.arrayBuffer()
   const slicedBuffer = buffer.slice(8, 12)
@@ -27,7 +28,7 @@ let worker;
 const loadWorker = () => {
     if (!worker) {
         const workerFileContent = WORKER_FILE_CONTENT
-        const workerBlob = new Blob([workerFileContent], {type: 'application/javascript'})
+        const workerBlob = new Blob([workerStr], { type: "application/javascript" });
         worker = new Worker(URL.createObjectURL(workerBlob))
         worker.onerror = (error) => console.error('Worker error:', error)
     }
