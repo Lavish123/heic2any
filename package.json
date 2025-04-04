@@ -1,0 +1,50 @@
+{
+  "name": "heic-to",
+  "version": "1.1.11",
+  "description": "Converting HEIF/HEIF image formats to PNG/JPEG in the browser",
+  "main": "dist/heic-to.js",
+  "exports": {
+    ".": {
+      "import": "./dist/heic-to.js",
+      "require": "./dist/heic-to.js",
+      "types": "./dist/heic-to.d.ts"
+    },
+    "./csp": {
+      "import": "./dist/csp/heic-to.js",
+      "require": "./dist/csp/heic-to.js",
+      "types": "./dist/csp/heic-to.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "s": "npx http-server -o ./example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoppergee/heic-to.git"
+  },
+  "types": "dist/heic-to.d.ts",
+  "keywords": [
+    "heic",
+    "heif",
+    "jpeg",
+    "jpg",
+    "png",
+    "conversion",
+    "convert",
+    "image",
+    "decoder"
+  ],
+  "author": "Hopper Gee",
+  "license": "LGPL-3.0",
+  "homepage": "https://github.com/hoppergee/heic-to",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "esbuild": "0.23.0",
+    "http-server": "^14.1.1",
+    "rollup": "^2.79.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^5.8.2"
+  }
+}
