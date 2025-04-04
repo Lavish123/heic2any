@@ -27,7 +27,6 @@ const isHeic = async (file) => {
 let worker;
 const loadWorker = () => {
     if (!worker) {
-        const workerFileContent = WORKER_FILE_CONTENT
         const workerBlob = new Blob([workerStr], { type: "application/javascript" });
         worker = new Worker(URL.createObjectURL(workerBlob))
         worker.onerror = (error) => console.error('Worker error:', error)
